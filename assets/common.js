@@ -1,9 +1,26 @@
 $(document).ready(function () {
     fixFooter();
+
     $(".form-ajax-btn").click(function(e){
         e.preventDefault();
         var btn=$(this);
         formAjaxSubmit(btn,commonSucHdl,commonErrHdl);
+    });
+
+    $("#addItem").click(function(){
+        var count = $("#itemCount"), countNum = count.val();
+        count.val(++countNum);
+        var btnValue = $(this).val(), url = './main/control.php', data = {'action': btnValue, 'count': count};
+
+        $.ajax({
+            url:url,
+            type:'post',
+            data:data
+        }).then(function(r){
+            //itemDiv.append("<label>Location: </label><select id='"+locid+"'></select>" +
+            //"<label>Item: </label><select id='"+itemid+"'></select><br>")
+        });
+
     });
 });
 //get the height of current browser, calculate current windows' component height

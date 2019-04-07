@@ -22,26 +22,26 @@ $item = TCommon::getOne($sql);
 
     <div class="form-group">
         <label>Standard:</label>
-        <select name="itemStandard" value="<?php echo $item['itemStandard']?>">
-            <option value="1">1</option>
-            <option value="0">0</option>
+        <select name="itemStandard">
+            <option value="1"<?php if ($item['itemStandard'] === 1){echo " selected";}?>>Standard</option>
+            <option value="0"<?php if ($item['itemStandard'] === 0){echo " selected";}?>>Upgrade</option>
         </select>
     </div>
 
     <div class="form-group">
         <label>Type:</label>
-        <select name="itemType" value="<?php echo $item['ItemType_typeId']?>">
+        <select name="itemType">
         <?php $types = listTypes();foreach($types as $k=>$v){?>
-            <option value=<?php echo $v["typeId"]; if ($item['ItemType_typeId'] === $v["typeId"]){" selected";}?>><?php echo $v["typeName"]?></option>
+            <option value=<?php echo $v["typeId"]; if ($item['ItemType_typeId'] === $v["typeId"]){echo " selected";}?>><?php echo $v["typeName"]?></option>
         <?php }?>
         </select>
     </div>
 
     <div class="form-group">
         <label>Manufacturer:</label>
-        <select name="itemManufacturer" value="<?php echo $item['ItemManufacturer_manuId']?>">
+        <select name="itemManufacturer">
         <?php $manus = listManus(); foreach($manus as $p=>$j) {?>
-            <option value=<?php echo $j["manuId"]?>><?php echo $j["manuName"]?></option>
+            <option value=<?php echo $j["manuId"]; if ($item['ItemManufacturer_manuId'] === $j["manuId"]){echo " selected";}?>><?php echo $j["manuName"]?></option>
         <?php }?>
         </select>
     </div>
