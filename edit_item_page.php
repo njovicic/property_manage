@@ -32,7 +32,7 @@ print_r($item);
         <label>Type:</label>
         <select name="itemType" value="<?php echo $item['itemType_typeId']?>">
         <?php $types = listTypes();foreach($types as $k=>$v){?>
-            <option value=<?php echo $v["typeId"]?>><?php echo $v["typeName"]?></option>
+            <option value=<?php echo $v["typeId"]; if ($item['itemType_typeId'] === $v["typeId"]){" selected";}?>><?php echo $v["typeName"]?></option>
         <?php }?>
         </select>
     </div>

@@ -28,7 +28,7 @@ if (isset($_GET['act'])) {
             break;
 
         case 'list_clients':
-            list_client();
+            list_clients();
             break;
         case 'create_client':
             create_client();
@@ -265,7 +265,6 @@ function create_item(){
 function edit_item(){
     $r["success"] = false;
     $id = $_POST["id"];
-
     $itemName = $_POST["itemName"];
     $itemDescription = $_POST["itemDescription"];
     $itemStandard = $_POST["itemStandard"];
@@ -275,12 +274,12 @@ function edit_item(){
 
     //$sql = "SELECT count(*) FROM item WHERE itemName ='$itemName'";
         //if(0 == TCommon::getOneColumn($sql)){
-            $sql = "UPDATE item SET itemName = '$itemName',
-                    itemDescription = '$itemDescription',
-                    itemStandard = '$itemStandard',
-                    itemType_typeId = '$itemType',
-                    itemManufacturer_manuId = '$itemManufacturer'
-                    WHERE itemId = $id";
+            $sql = "UPDATE item SET itemName='$itemName',
+                    itemDescription='$itemDescription',
+                    itemStandard='$itemStandard',
+                    itemType_typeId='$itemType',
+                    itemManufacturer_manuId='$itemManufacturer'
+                    WHERE itemId=$id";
             TCommon::execSql($sql);
 
             $r['success'] = true;
