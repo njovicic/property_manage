@@ -357,14 +357,14 @@ function create_appointment(){
     $apptDate = $_POST["apptDate"];
 
     $clientId = false;
-    $sqlQuery = "SELECT * FROM client WHERE client.clientName = '$clientName'";
+    $sqlQuery = "SELECT * FROM client WHERE client.clientName='$clientName'";
     $client = TCommon::getOne($sqlQuery);
     if($client){
         $clientId = $client["clientId"];
     }
     if($clientId){
 
-        $sqlInsert = "INSERT INTO appointment (apptDate,Client_clientId,User_userId) values('$apptDate',$clientId,$uid)";
+        $sqlInsert = "INSERT INTO appointment (apptDate,Client_clientId,User_userId) VALUES('$apptDate',$clientId,$uid)";
         if(TCommon::execSql($sqlInsert)){
             $r['success'] = true;
             $r['info'] = "Appointment created success";
@@ -378,13 +378,13 @@ function create_appointment(){
 function list_appointments(){
     $uid = $_SESSION['ID'];
     $query = "SELECT  appointment.apptId, appointment.apptDate, client.clientName FROM appointment
-        JOIN client ON appointment.Client_clientId=client.clientId WHERE appointment.User_userId = $uid";
+        JOIN client ON appointment.Client_clientId=client.clientId WHERE appointment.User_userId=$uid";
     return TCommon::getAll($query);
 }
 
 function del_appointment(){
     $apptDate=$_GET["apptDate"];
-    $sqlExec = "DELETE FROM appointment WHERE appointment.apptDate = '$apptDate'";
+    $sqlExec = "DELETE FROM appointment WHERE appointment.apptDate='$apptDate'";
     print_r($sqlExec);
     if(TCommon::execSql($sqlExec)){
 
@@ -398,7 +398,7 @@ function edit_appointment(){
     $clientName = $_POST["clientName"];
     $apptDate = $_POST["apptDate"];
 
-    $sqlQuery = "SELECT * FROM client WHERE client.clientName = '$clientName'";
+    $sqlQuery = "SELECT * FROM client WHERE client.clientName='$clientName'";
     $client = TCommon::getOne($sqlQuery);
     if($client){
         $clientId = $client["clientId"];

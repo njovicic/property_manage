@@ -9,6 +9,14 @@ require_once('head.php');
       data-url="list_property_page.php">
     <h3 class="title">Create New Property</h3>
     <div class="form-group">
+        <label>Subdivision:</label>
+        <input name="subdivName" type="text" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label>Block:</label>
+        <input name="blockName" type="text" class="form-control"/>
+    </div>
+    <div class="form-group">
         <label>Lot #:</label>
         <input name="lotNumber" type="text" class="form-control"/>
     </div>
@@ -16,7 +24,11 @@ require_once('head.php');
         <label>Status</label>
         <select name="propStatus">
             <option value="available">Available</option>
+            <option value="on_hold">On Hold</option>
+            <option value="cond_offer">Conditional Offer</option>
             <option value="firm_offer">Firm Offer</option>
+            <option value="need_pack">Needs Package</option>
+            <option value="pack_select">Package Selected</option>
         </select>
     </div>
 
