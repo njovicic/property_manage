@@ -16,10 +16,12 @@ if (isset($_POST['action'])) {
 }
 function insertItem()
 {
+    //inserts 2 inputs to itemDiv, names them accordingly using count var in common.js
 }
 
 function insertLocation()
 {
+    //dialog asking for name of location, uploads it to itemLocation
 }
 
 ?>
@@ -56,8 +58,8 @@ function insertLocation()
         <div>
             <form action="new_package_page.php" method="post">
                 <input type="hidden" id="itemCount" value="1" />
-                <button id="addItem" class="packbutton" type="button" value="newitem">Add Item</button><br>
-                <button id="addLocation" class="packbutton" type="button" value="newloc">Item Locations</button>
+                <button id="addItem" class="packbutton" type="submit" value="newitem">Add Item</button><br>
+                <button id="addLocation" class="packbutton" type="submit" value="newloc">Item Locations</button>
             </form>
         </div>
     </form>
