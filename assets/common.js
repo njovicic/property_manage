@@ -7,22 +7,23 @@ $(document).ready(function () {
         formAjaxSubmit(btn,commonSucHdl,commonErrHdl);
     });
 
-    $("#addItem").click(function(){
-        var itemDiv = $("#itemDiv");
-        var count = $("#itemCount").val();
-        count++;
-        var locid = "location" + count;
-        var itemid = "item" + count;
-        itemDiv.append("<label>Location: </label><select id='"+locid+"'>" +
-            "<?php $locations = listLocations();foreach($locations as $k=>$v){?>" +
-            "<option value='<?php echo $v[\"locId\"]?>'><?php echo $v[\"locName\"]?></option>" +
-            "<?php }?></select><br>" +
-            "<label>Item: </label><select id='"+itemid+"'>" +
-            "<?php $items = listItems();foreach($items as $k=>$v){?>" +
-            "<option value='<?php echo $v[\"itemId\"]?>'><?php echo $v[\"itemName\"]?></option>" +
-            "<?php }?></select><br>")
-    })
+    $(".packbutton").click(function(){
+        var count = $("#itemCount"), countNum = count.val();
+        count.val(++countNum);
+        var btnValue = $(this).val(), url = 'new_package_page.php', data = {'action': btnValue, 'count': count};
+
+        $.ajax({
+            url:url,
+            type:'post',
+            data:data
+            }).then(function(r){
+
+        });
+        //itemDiv.append("<label>Location: </label><select id='"+locid+"'></select>" +
+        //"<label>Item: </label><select id='"+itemid+"'></select><br>")
+    });
 });
+
 //get the height of current browser, calculate current windows' component height
 function fixFooter(){
     var windowHeight=$(window).height();
@@ -56,12 +57,15 @@ function formAjaxSubmit(btn,success,error){
         }
     })
 }
+
 function commonSucHdl(r){
     alert(r.info);
 }
+
 function commonErrHdl(r){
     alert(r.error);
 }
+
 function headerPage(url){
     window.location.href=url;
 }

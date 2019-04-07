@@ -1,6 +1,7 @@
 <?php
 $subTitle = "new_package_page";
 require_once('head.php');
+require_once('main/control.php');
 // print_r($_SESSION);
 ?>
 <?php if($u_name) {?>
@@ -32,17 +33,35 @@ require_once('head.php');
     </div>
     <div class="form-group tT010 ">
         <button class="form-ajax-btn" type="submit">Create Package</button><br>
-        <input type="hidden" id="itemCount" value="1" />
-        <button id="addItem" type="button">Add Item</button><br>
-        <button id="itemList" type="button">Item Locations</button>
     </div>
     <div>
+        <form action="new_package_page.php" method="post">
+            <input type="hidden" id="itemCount" value="1" />
+            <button id="addItem" class="packbutton" type="button" value="newitem">Add Item</button><br>
+            <button id="addLocation" class="packbutton" type="button" value="newloc">Item Locations</button>
+        </form>
+    </div>
 </form>
 <?php }else{?>
     <h3 class="title">Please login/register first</h3>
 <?php }
 
+if (isset($_POST['action'])) {
+    switch ($_POST['action']) {
+        case 'newitem':
+            insertItem();
+            break;
+        case 'newloc':
+            insertLocation();
+            break;
+    }
+}
+
 function insertItem(){
+
+}
+
+function insertLocation(){
 
 }
 ?>

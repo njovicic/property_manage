@@ -8,7 +8,7 @@ if (isset($_GET['act'])) {
             userRegister();
             break;
         case 'user_login':
-            userLogin(TCommon::$TYPE_USER);
+            userLogin(); //TCommon::$TYPE_USER
             break;
         case 'out':
             logOut();
@@ -29,7 +29,7 @@ if (isset($_GET['act'])) {
 
 
         case 'list_clients':
-            list_client();
+            list_clients();
             break;
         case 'create_client':
             create_client();
@@ -298,16 +298,16 @@ function edit_appointment(){
     if($client){
         $clientId = $client["clientId"];
     }
-   if($clientId){
+    if($clientId){
         $sql = "UPDATE appointment SET apptDate = '$apptDate' , Client_clientId = $clientId WHERE apptId = $id";
         TCommon::execSql($sql);
           $r['success'] = true;
                     $r['info'] = "Appointment updated success";
 
-   }else{
+    }else{
            $r['info'] = "cannot locate clientId by name $clientName";
-   }
-   echo json_encode($r);
+    }
+    echo json_encode($r);
 
 }
 
