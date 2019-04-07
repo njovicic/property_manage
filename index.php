@@ -18,7 +18,7 @@ data-action="./main/control.php?act=create_appointment"
 		<input name="apptDate" type="text" placeholder="YYYY-MM-DD HH:MM:SS" data-clear-btn="true" class="form-control"/>
 	</div>
 	<div class="form-group ">
-		<button class="form-ajax-btn " type="submit">Submit</button>
+		<button class="form-ajax-btn" type="submit">Submit</button>
 	</div>
 </form>
 
@@ -30,6 +30,7 @@ data-action="./main/control.php?act=create_appointment"
 
         <thead>
         <tr>
+            <td>User name</td>
             <td>Client name</td>
             <td>Appointment time</td>
             <td></td>
@@ -39,9 +40,12 @@ data-action="./main/control.php?act=create_appointment"
 
         <?php foreach($arr as $k => $v){ ?>
             <tr>
+                <td><?php echo $v["userName"] ;?></td>
                 <td><?php echo $v["clientName"] ;?></td>
                 <td><?php echo $v["apptDate"] ;?></td>
-                <td><a href="./main/control.php?act=del_appointment&apptDate=<?php echo $v["apptDate"]?>">Delete</a></td>
+                <td>
+                    <a href="./main/control.php?act=del_appointment&apptDate=<?php echo $v["apptDate"]?>">Delete</a>
+                </td>
             </tr>
         <?php  } ?>
         </tbody>

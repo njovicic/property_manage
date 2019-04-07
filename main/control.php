@@ -128,19 +128,18 @@ function create_client(){
     $address2 = $_POST["clientAddress2"];
     $city = $_POST["clientCity"];
     $province = $_POST["clientProv"];
-    $postal =
-
-
-        $r["success"] = false;
-        $name = $_POST["name"];
-        $price = trim($_POST["price"]);
-        $address = trim($_POST["address"]);
-        $sqlInsert = "insert into `property` (name,address,price) values('$name','$address',$price)";
-        if (TCommon::execSql($sqlInsert)) {
-            $r['success'] = true;
-            $r['info'] = "$name create success";
-        }
-        echo json_encode($r);
+    $postal = $_POST["clientPostal"];
+    $phone1 = $_POST["clientPhone1"];
+    $phone2 = $_POST["clientPhone2"];
+    $email = $_POST["clientEmail"];
+    $details = $_POST["clientDetails"];
+    $sqlInsert = "insert into client (clientName,clientAddress1,clientAddress2, clientCity, clientProv, clientPostal) 
+        values('$clientName','$address1','$address2','$city','$province','$postal','$phone1','$phone2','$email','$details')";
+    if (TCommon::execSql($sqlInsert)) {
+        $r['success'] = true;
+        $r['info'] = "$clientName create success";
+    }
+    echo json_encode($r);
 }
 
 //--item--
@@ -185,9 +184,10 @@ function del_property(){
 
 function create_appointment(){
     $r["success"] = false;
-    $name = $_POST["client_name"];
+    $clientid = TCommon::getOneColumn("SELECT clientId FROM client WHERE clientName=".$_POST["client_name"]);
+    $userid = TCommon::getOneColumn("SELECT userId FROM user WHERE userName=".$_SESSION["NAME"]);
     $appointment_time = $_POST["appointment_time"];
-    $sqlInsert = "INSERT INTO appointment (apptDate,Client_clientId,User_userId) values('','','')"; //!!!!!!!!!!!!!!!!
+    $sqlInsert = "INSERT INTO appointment (apptDate,Client_clientId,User_userId) VALUES('$appointment_time','$clientid','$userid')";
     if(TCommon::execSql($sqlInsert)){
         $r['success'] = true;
         $r['info'] = "Appointment created success";
@@ -196,13 +196,14 @@ function create_appointment(){
 }
 
 function list_appointments(){
-    $query = "SELECT appointment.apptDate, client.clientName FROM appointment INNER JOIN client ON appointment.Client_clientId=client.clientId";
+    $query = "SELECT appointment.apptDate, client.clientName, user.userName FROM appointment 
+        JOIN client ON appointment.Client_clientId=client.clientId 
+        JOIN user ON appointment.User_userId=user.userId";
     return TCommon::getAll($query);
 }
 
 function del_appointment(){
-    $id=$_GET["apptDate"];
-    $sqlExec = "DELETE FROM appointment WHERE apptDate = ".$apptDate;
+    $sqlExec = "DELETE FROM appointment WHERE apptDate = ".$_GET["apptDate"];
     print_r($sqlExec);
     if(TCommon::execSql($sqlExec)){
 
