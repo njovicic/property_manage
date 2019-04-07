@@ -65,8 +65,8 @@ require_once('head.php');
         <td><?php echo $v["itemStandard"] ;?></td>
         <td><?php echo $v["typeName"] ;?></td>
         <td><?php echo $v["manuName"] ;?></td>
-        <td><a href="./main/control.php?act=edit_item&itemName=<?php echo $v["itemName"]?>">Edit</a></td>
-        <td><a href="./main/control.php?act=del_item&itemName=<?php echo $v["itemName"]?>">Delete</a></td>
+        <td><a href="./main/control.php?act=edit_item&itemIde=<?php echo $v["itemId"]?>">Edit</a></td>
+        <td><a href="./main/control.php?act=del_item&itemId=<?php echo $v["itemId"]?>">Delete</a></td>
     </tr>
 
     <?php  } ?>

@@ -7,20 +7,20 @@ $(document).ready(function () {
         formAjaxSubmit(btn,commonSucHdl,commonErrHdl);
     });
 
-    $(".packbutton").click(function(){
+    $("#addItem").click(function(){
         var count = $("#itemCount"), countNum = count.val();
         count.val(++countNum);
-        var btnValue = $(this).val(), url = 'new_package_page.php', data = {'action': btnValue, 'count': count};
+        var btnValue = $(this).val(), url = './main/control.php', data = {'action': btnValue, 'count': count};
 
         $.ajax({
             url:url,
             type:'post',
             data:data
             }).then(function(r){
-
+            //itemDiv.append("<label>Location: </label><select id='"+locid+"'></select>" +
+            //"<label>Item: </label><select id='"+itemid+"'></select><br>")
         });
-        //itemDiv.append("<label>Location: </label><select id='"+locid+"'></select>" +
-        //"<label>Item: </label><select id='"+itemid+"'></select><br>")
+
     });
 });
 

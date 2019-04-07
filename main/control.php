@@ -208,7 +208,7 @@ function create_item(){
 }
 
 function list_items(){
-    $query = "SELECT item.itemName, item.itemDescription, item.itemStandard, itemtype.typeName, itemmanufacturer.manuName FROM item
+    $query = "SELECT item.itemId, item.itemName, item.itemDescription, item.itemStandard, itemtype.typeName, itemmanufacturer.manuName FROM item
     JOIN itemtype ON item.ItemType_typeId=itemtype.typeId
     JOIN itemmanufacturer ON item.ItemManufacturer_manuId=itemmanufacturer.manuId";
     return TCommon::getAll($query);
