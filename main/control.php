@@ -133,7 +133,8 @@ function create_client(){
     $phone2 = $_POST["clientPhone2"];
     $email = $_POST["clientEmail"];
     $details = $_POST["clientDetails"];
-    $sqlInsert = "insert into client (clientName,clientAddress1,clientAddress2, clientCity, clientProv, clientPostal) 
+    $sqlInsert = "insert into client (clientName,clientAddress1,clientAddress2, clientCity, clientProv, clientPostal,
+        clientPhone1, clientPhone2, clientEmail, clientDetails) 
         values('$clientName','$address1','$address2','$city','$province','$postal','$phone1','$phone2','$email','$details')";
     if (TCommon::execSql($sqlInsert)) {
         $r['success'] = true;
