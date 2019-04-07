@@ -168,7 +168,7 @@ function create_property()
 }
 
 function list_properties(){
-    $query = "SELECT * FROM property";
+    $query = "SELECT * FROM property JOIN lot ON property.Lot_lotId=lot.lotId JOIN block ON lot.Block_blockId=block.blockId JOIN subdivision ON block.Subdivision_subdivId=subdivision.subdivId";
     return TCommon::getAll($query);
 
 }
