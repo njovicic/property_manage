@@ -14,7 +14,7 @@ require_once('head.php');
     </div>
     <div class="form-group">
         <label>Block:</label>
-        <input name="blockNumber" type="text" class="form-control"/>
+        <input name="blockName" type="text" class="form-control"/>
     </div>
     <div class="form-group">
         <label>Lot #:</label>

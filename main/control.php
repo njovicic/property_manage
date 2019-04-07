@@ -156,13 +156,15 @@ function list_items(){
 function create_property()
 {
     $r["success"] = false;
-    $name = $_POST["name"];
-    $price = trim($_POST["price"]);
-    $address = trim($_POST["address"]);
-    $sqlInsert = "insert into `property` (name,address,price) values('$name','$address',$price)";
+    $status = $_POST["propStatus"];
+    $subdivId = TCommon::getOneColumn("SELECT subdivId FROM subdivision WHERE subdivName=".$_POST["subdivName"]);
+    $blockId = TCommon::getOneColumn("SELECT blockId FROM block WHERE blockName=".$_POST["blockName"]);
+    $lotId = TCommon::getOneColumn("SELECT lotId FROM lot JOIN block ON lot.Block_blockId=$blockId".
+        " JOIN subdivision ON Block.Subdivision_subdivId=$subdivId WHERE lotNumber=".$_POST["lotNumber"]);
+    $sqlInsert = "insert into property (propStatus, Lot_lotId) values('$status','$lotId')";
     if (TCommon::execSql($sqlInsert)) {
         $r['success'] = true;
-        $r['info'] = "$name create success";
+        $r['info'] = "property create success";
     }
     echo json_encode($r);
 }
@@ -175,8 +177,8 @@ function list_properties(){
 }
 
 function del_property(){
-    $id=$_GET["id"];
-    $sqlExec = "delete from `property` where id = ".$id;
+    $id=$_GET["propId"];
+    $sqlExec = "delete from property where propId = ".$id;
     print_r($sqlExec);
     if (TCommon::execSql($sqlExec)) {
         
