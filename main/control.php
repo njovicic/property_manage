@@ -8,7 +8,7 @@ if (isset($_GET['act'])) {
             userRegister();
             break;
         case 'user_login':
-            userLogin(TCommon::$TYPE_USER);
+            userLogin(); //TCommon::$TYPE_USER
             break;
         case 'out':
             logOut();
@@ -293,7 +293,7 @@ function edit_item(){
 }
 
 function list_items(){
-    $query = "SELECT item.itemName, item.itemDescription, item.itemStandard, itemtype.typeName, itemmanufacturer.manuName FROM item
+    $query = "SELECT * FROM item
     JOIN itemtype ON item.ItemType_typeId=itemtype.typeId
     JOIN itemmanufacturer ON item.ItemManufacturer_manuId=itemmanufacturer.manuId";
     return TCommon::getAll($query);
@@ -403,7 +403,7 @@ function edit_appointment(){
         $clientId = $client["clientId"];
     }
    if($clientId){
-        $sql = "UPDATE appointment SET apptDate = '$apptDate' , Client_clientId = $clientId WHERE apptId = $id";
+        $sql = "UPDATE appointment SET apptDate='$apptDate', Client_clientId=$clientId WHERE apptId=$id";
         TCommon::execSql($sql);
         $r['success'] = true;
         $r['info'] = "Appointment updated success";
