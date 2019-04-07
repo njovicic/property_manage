@@ -16,12 +16,16 @@ if (isset($_POST['action'])) {
 }
 function insertItem()
 {
-    //inserts 2 inputs to itemDiv, names them accordingly using count var in common.js
+    $r['locations'] = listLocations();
+    $r['items'] = listItems();
+    json_encode($r);
+    exit();
 }
 
 function insertLocation()
 {
     //dialog asking for name of location, uploads it to itemLocation
+    exit();
 }
 
 ?>

@@ -155,7 +155,6 @@ function list_clients(){
 
 function create_client(){
     $r["success"] = false;
-
     $clientName = $_POST["clientName"];
     $address1 = $_POST["clientAddress1"];
     $address2 = $_POST["clientAddress2"];
@@ -240,7 +239,6 @@ function del_client(){
 //--item--
 function create_item(){
     $r["success"] = false;
-
     $itemName = $_POST["itemName"];
     $itemDescription = $_POST["itemDescription"];
     $itemStandard = $_POST["itemStandard"];

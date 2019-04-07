@@ -11,15 +11,28 @@ $(document).ready(function () {
         var count = $("#itemCount"), countNum = count.val();
         count.val(++countNum);
         var btnValue = $(this).val(), url = './new_package_page.php', data = {'action': btnValue, 'count': count};
+        $("#itemDiv").append("<label>Location: </label><select id='loc"+count+"'></select>" +
+            "<label>Item: </label><select id='item"+count+"'></select><br>");
 
-        $.ajax({
+        /*$.ajax({
             url:url,
             type:'post',
             data:data
         }).then(function(r){
-            //itemDiv.append("<label>Location: </label><select id='loc"+count+"'>foreach<option></option></select>" +
-            //"<label>Item: </label><select id='item"+count+"'>foreach<option></option></select><br>")
-        });
+            var result = JSON.parse(r);
+            var itemSelect = $("#item"+count);
+            for (var item in result.data.response['items']){
+                var itemOptions = document.createElement("option");
+                itemOptions.text = item.get("itemName");
+                itemSelect.add(itemOptions);
+            }
+            var locSelect = $("#loc"+count);
+            var locOptions = "";
+            for (var location in result.data.response["locations"]){
+                itemHtml = "<option value='"+location.locId+"'>location.locName</option>";
+            }
+            locSelect.add(locHtml);
+        }).catch(function(){alert("error")});*/
     });
 });
 //get the height of current browser, calculate current windows' component height
