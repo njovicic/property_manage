@@ -35,7 +35,7 @@ if (isset($_SESSION["NAME"])) {
                         <a href="user_login.php">Login</a> |
                         <a href="user_register.php">Register</a>
                     <?php } else { ?>
-                    <span> Welcome , <?php echo $u_name ?></span> |
+                    <span> Welcome, <?php echo $u_name ?></span> |
                     <a href="./main/control.php?act=out">Logout</a>
                     <?php } ?>
                 </div>

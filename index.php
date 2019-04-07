@@ -7,7 +7,7 @@ require_once('head.php');
 <form class="form-ajax-post"
 data-action="./main/control.php?act=create_appointment"
     data-url="index.php">
-    <h3 class="title">Create New Appointment</h3>
+    <h3 class="title">Create New Appointment</h3><br>
 	<div class="form-group">
 		<label for="clientName">Client name:</label>
 		<input name="clientName" type="text" class="form-control"/>
@@ -45,8 +45,8 @@ data-action="./main/control.php?act=create_appointment"
                 <td><?php echo $v["clientName"] ;?></td>
                 <td><?php echo $v["clientPhone1"] ;?></td>
                 <td><?php echo $v["clientEmail"] ;?></td>
-                <td><a href="./edit_appointment_page.php?id=<?php echo $v['apptId']?>">Edit</a></td>
-                <td><a href="./main/control.php?act=del_appointment&id=<?php echo $v['apptId']?>?>">Delete</a></td>
+                <td><a href="./edit_appointment_page.php?apptDate=<?php echo $v['apptDate']?>">Edit</a></td>
+                <td><a href="./main/control.php?act=del_appointment&apptDate=<?php echo $v['apptDate']?>?>">Delete</a></td>
             </tr>
         <?php  } ?>
         </tbody>

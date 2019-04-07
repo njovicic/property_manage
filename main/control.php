@@ -56,9 +56,27 @@ if (isset($_GET['act'])) {
         case 'list_properties':
             list_properties();
             break;
+        case 'create_property':
+            create_property();
+            break;
+        case 'edit_property':
+            edit_property();
+            break;
+        case 'del_property':
+            del_property();
+            break;
 
         case 'view_package':
             view_package();
+            break;
+        case 'create_package':
+            create_package();
+            break;
+        case 'edit_package':
+            edit_package();
+            break;
+        case 'del_package':
+            del_package();
             break;
 
         default:
@@ -249,14 +267,20 @@ function create_item(){
         $r["error"] = "item name cannot left blank";
     }
     else{
+        $sql = "SELECT count(*) FROM item WHERE itemName ='$itemName'";
+        if(0 == TCommon::getOneColumn($sql)){
+            $sqlInsert = "INSERT INTO item (itemName, itemDescription, itemStandard, itemType_typeId, itemManufacturer_manuId)
+                    VALUES ('$itemName', '$itemDescription', '$itemStandard', '$itemType', '$itemManufacturer')";
+            if(TCommon::execSql($sqlInsert)){
+                $r['success'] = true;
+                $r['info'] = "$itemName created success";
+            }
+        }
+        else{
+            $r["error"] = "$itemName already exits";
+        }
 
-        $sqlInsert = "INSERT INTO item (itemName, itemDescription, itemStandard, itemType_typeId, itemManufacturer_manuId)
-                    VALUES ('$itemName', '$itemDescription', '$itemStandard', $itemType, $itemManufacturer)";
-        TCommon::execSql($sqlInsert);
-            $r['success'] = true;
-            $r['info'] = "Item created success";
     }
-
     echo json_encode($r);
 }
 
@@ -307,45 +331,7 @@ function del_item(){
     TCommon::headerTo("../list_item_page.php");
 }
 
-//--property--
-function create_property()
-{
-    $r["success"] = false;
-    $status = $_POST["propStatus"];
-    $subdivId = TCommon::getOneColumn("SELECT subdivId FROM subdivision WHERE subdivName=".$_POST["subdivName"]);
-    $blockId = TCommon::getOneColumn("SELECT blockId FROM block WHERE blockName=".$_POST["blockName"]);
-    $lotId = TCommon::getOneColumn("SELECT lotId FROM lot JOIN block ON lot.Block_blockId=$blockId".
-        " JOIN subdivision ON Block.Subdivision_subdivId=$subdivId WHERE lotNumber=".$_POST["lotNumber"]);
-    $sqlInsert = "INSERT INTO property (propStatus, Lot_lotId) VALUES('$status','$lotId')";
-    if (TCommon::execSql($sqlInsert)) {
-        $r['success'] = true;
-        $r['info'] = "property create success";
-    }
-    echo json_encode($r);
-}
-
-function list_properties(){
-    $query = "SELECT * FROM property JOIN lot ON property.Lot_lotId=lot.lotId 
-        JOIN block ON lot.Block_blockId=block.blockId 
-        JOIN subdivision ON block.Subdivision_subdivId=subdivision.subdivId";
-    return TCommon::getAll($query);
-}
-
-function del_property(){
-    $propId =$_GET["propId"];
-    $sqlExec = "DELETE FROM property WHERE property.propId = '$propId'";
-    print_r($sqlExec);
-    if(TCommon::execSql($sqlExec)){
-
-    }
-    TCommon::headerTo("../list_item_page.php");
-}
-
-function edit_property(){
-}
-
-
-//--appointment--
+//--appointment---------------------------------------------------------------------------------------------------------
 function create_appointment(){
     $r["success"] = false;
 
@@ -412,7 +398,154 @@ function edit_appointment(){
 
 }
 
-//--package--
+
+//--property------------------------------------------------------------------------------------------------------------
+function create_property(){
+    $r["success"] = false;
+
+    $sub = $_POST["p_sub"];
+    $block = $_POST["p_block"];
+    $lot = $_POST["p_lotnum"];
+    $size = $_POST["p_size"];
+    $model = $_POST["p_model"];
+    $date = $_POST["p_closingdate"];
+    $status = $_POST["p_status"];
+    $buyer = $_POST["p_buyer"];
+
+    if(TCommon::isEmpty($lot) || TCommon::isEmpty($sub) || TCommon::isEmpty($block)){
+        $r["error"] = "Lot#, sub, block cannot left blank";
+    }
+    else{
+        $sqlCheckLot = "SELECT count(*) FROM property WHERE lotNum = '$lot'";
+        if(0==TCommon::getOneColumn($sqlCheckLot)){
+            if($status != "available"){
+                if(TCommon::isEmpty($buyer)){
+                    $r["error"] = "status $status requires a buyer";
+                }
+                else{
+                    $sqlQuery = "SELECT * FROM client WHERE client.clientName = '$buyer'";
+                    $client = TCommon::getOne($sqlQuery);
+                    if($client){
+                        $clientId = $client["clientId"];
+                        $sqlInsert = "INSERT INTO property (status, lotNum, lotSize, closingDate, lotModel, sub, block, clientId)
+                                VALUES('$status','$lot','$size','$date','$model','$sub','$block',$clientId)";
+                        if(TCommon::execSql($sqlInsert)){
+                            $r["success"] = true;
+                            $r['info'] = "success";
+                        }
+                    }
+                    else{
+                        $r["error"] = "Buyer not in file";
+                    }
+                }
+            }
+            else{
+                $sqlInsert = "INSERT INTO property (status, lotNum, lotSize, closingDate, lotModel, sub, block, clientId)
+                                VALUES('$status','$lot','$size','$date','$model','$sub','$block', 'NULL')";
+                if(TCommon::execSql($sqlInsert)){
+                    $r['success'] = true;
+                    $r['info'] = "success";
+                }
+            }
+        }
+        else{
+            $r["error"] = "$lot exist already";
+        }
+    }
+    echo json_encode($r);
+}
+
+function edit_property(){
+
+    $r["success"] = false;
+    $id=$_POST["id"];
+
+    $sub = $_POST["p_sub"];
+    $block = $_POST["p_block"];
+    $lot = $_POST["p_lotnum"];
+    $size = $_POST["p_size"];
+    $model = $_POST["p_model"];
+    $date = $_POST["p_closingdate"];
+    $status = $_POST["p_status"];
+    $buyer = $_POST["p_buyer"];
+
+    if(TCommon::isEmpty($lot) || TCommon::isEmpty($sub) || TCommon::isEmpty($block)){
+        $r["error"] = "Lot#, sub, block cannot left blank";
+    }
+    else{
+        $sqlCheckLot = "SELECT count(*) FROM property WHERE lotNum = '$lot'";
+        //if(1==TCommon::getOneColumn($sqlCheckLot)){
+            if($status != "available"){
+                if(TCommon::isEmpty($buyer)){
+                    $r["error"] = "status $status requires a buyer";
+                }
+                else{
+                    $sqlQuery = "SELECT * FROM client WHERE client.clientName = '$buyer'";
+                    $client = TCommon::getOne($sqlQuery);
+                    if($client){
+                        $clientId = $client["clientId"];
+                        $sqlUpdate = "UPDATE property SET sub = '$sub',
+                                block = '$block',
+                                lotNum = '$lot',
+                                lotSize = '$size',
+                                lotModel = '$model',
+                                closingDate = '$date',
+                                status = '$status',
+                                clientId = '$clientId'
+                                WHERE propertyId = $id";
+                        if(TCommon::execSql($sqlUpdate)){
+                            $r["success"] = true;
+                            $r['info'] = "success";
+                        }
+                    }
+                    else{
+                        $r["error"] = "Buyer not in file";
+                    }
+                }
+            }
+            else{
+                $sqlUpdate = "UPDATE property SET sub = '$sub',
+                                            block = '$block',
+                                            lotNum = '$lot',
+                                            lotSize = '$size',
+                                            lotModel = '$model',
+                                            closingDate = '$date',
+                                            status = '$status',
+                                            clientId = 'NULL'
+                                            WHERE propertyId = $id";
+
+                $sqlInsert = "INSERT INTO property (status, lotNum, lotSize, closingDate, lotModel, sub, block, clientId)
+                                VALUES('$status','$lot','$size','$date','$model','$sub','$block', 'NULL')";
+                if(TCommon::execSql($sqlUpdate)){
+                    $r['success'] = true;
+                    $r['info'] = "success";
+                }
+            }
+        //}
+        //else{
+            //$r["error"] = "$lot exist already";
+        //}
+    }
+    echo json_encode($r);
+}
+
+function list_properties(){
+    $query = "SELECT property.*, client.clientName FROM property LEFT JOIN client ON property.clientId = client.clientId";
+    return TCommon::getAll($query);
+}
+
+function del_property(){
+    $lot=$_GET["lotNum"];
+    $sqlExec = "DELETE FROM property WHERE property.lotNum = '$lot'";
+    print_r($sqlExec);
+    if(TCommon::execSql($sqlExec)){
+
+    }
+    TCommon::headerTo("../list_property_page.php");
+}
+
+
+//--package-------------------------------------------------------------------------------------------------------------
 function view_package(){
     TCommon::headerTo("../view_package_page.php");
 }
