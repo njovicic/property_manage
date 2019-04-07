@@ -28,12 +28,12 @@ require_once('head.php');
             <?php $items = listItems();foreach($items as $k=>$v){?>
                 <option value=<?php echo $v["itemId"]?>><?php echo $v["itemName"]?></option>
             <?php }?>
-        </select>
+        </select><br>
     </div>
     <div class="form-group tT010 ">
-        <button class="form-ajax-btn" type="submit">Create Package</button>
+        <button class="form-ajax-btn" type="submit">Create Package</button><br>
         <input type="hidden" id="itemCount" value="1" />
-        <button id="addItem" type="button">Add Item</button>
+        <button id="addItem" type="button">Add Item</button><br>
         <button id="itemList" type="button">Item Locations</button>
     </div>
     <div>

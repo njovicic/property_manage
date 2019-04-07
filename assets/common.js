@@ -1,23 +1,25 @@
 $(document).ready(function () {
     fixFooter();
+
     $(".form-ajax-btn").click(function(e){
         e.preventDefault();
         var btn=$(this);
         formAjaxSubmit(btn,commonSucHdl,commonErrHdl);
     });
+
     $("#addItem").click(function(){
-        $itemDiv = $("#itemDiv");
-        $count = $("#itemCount").val();
-        $count++;
-        $locid = "location" + $count;
-        $itemid = "item" + $count;
-        $itemDiv.append("<label>Location: </label><select id=''>" +
+        var itemDiv = $("#itemDiv");
+        var count = $("#itemCount").val();
+        count++;
+        var locid = "location" + count;
+        var itemid = "item" + count;
+        itemDiv.append("<label>Location: </label><select id='"+locid+"'>" +
             "<?php $locations = listLocations();foreach($locations as $k=>$v){?>" +
-            "<option value=<?php echo $v['locId']?>><?php echo $v['locName']?></option>" +
+            "<option value='<?php echo $v[\"locId\"]?>'><?php echo $v[\"locName\"]?></option>" +
             "<?php }?></select><br>" +
-            "<label>Item: </label><select id=''>" +
+            "<label>Item: </label><select id='"+itemid+"'>" +
             "<?php $items = listItems();foreach($items as $k=>$v){?>" +
-            "<option value=<?php echo $v['itemId']?>><?php echo $v['itemName']?></option>" +
+            "<option value='<?php echo $v[\"itemId\"]?>'><?php echo $v[\"itemName\"]?></option>" +
             "<?php }?></select><br>")
     })
 });
@@ -49,7 +51,7 @@ function formAjaxSubmit(btn,success,error){
                 error(r);
             }
         },
-        error:function(r){
+        error:function(){
             alert("connection error");
         }
     })
