@@ -56,6 +56,10 @@ if (isset($_GET['act'])) {
             view_package();
             break;
 
+        case 'create_package':
+            create_package();
+            break;
+
         default:
             break;
     }
@@ -82,7 +86,7 @@ function userRegister()
             if (0 == TCommon::getOneColumn($sql)) {
                 $pwd_ = md5($pwd);
                 $sqlInsert = "insert into " . TCommon::$userTbl . " (userName,userPass,userEmail,userPhone)
-                values('$name','$pwd_','$email','$tel')";
+                    values('$name','$pwd_','$email','$tel')";
                 if (TCommon::execSql($sqlInsert)) {
                     $r['success'] = true;
                     $r['info'] = "$name register success";
@@ -109,7 +113,7 @@ function userLogin()
         $sqlSearch = "SELECT userPass FROM user WHERE userName='$name'";
         if ($pwd_ === TCommon::getOneColumn($sqlSearch)) {
             //get UserID begin
-            $sqlSearch = "SELECT * FROM user WHERE userName = '$name'";
+            $sqlSearch = "SELECT * FROM user WHERE userName =  '$name'";
             $user = TCommon::getOne($sqlSearch);
             TCommon::setSession('ID', $user["userId"]);
             //get userID end
@@ -312,9 +316,22 @@ function view_package(){
     TCommon::headerTo("../view_package_page.php");
 }
 
+function create_package(){
+    TCommon::headerTo("../new_package_page.php");
+}
+
+//--list calls--
 function listTypes(){
     $sql = "SELECT * FROM itemType";
     return TCommon::getAll($sql);
 }
 
+function listLocations(){
+    $sql = "SELECT * FROM itemLocation";
+    return TCommon::getAll($sql);
+}
 
+function listItems(){
+    $sql = "SELECT * FROM item";
+    return TCommon::getAll($sql);
+}
