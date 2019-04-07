@@ -48,7 +48,7 @@ if (isset($_SESSION["NAME"])) {
         <div class="row">
             <div class="col-md-3">
                 <div class="logo">
-                    <a href="/"><img src="./images/icons/icon-1.png" alt="Company Icon" ></a>
+                    <a href="./"><img src="./images/icons/icon-1.png" alt="Company Icon" ></a>
                 </div>
             </div>
             <div class="col-md-6">

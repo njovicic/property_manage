@@ -22,7 +22,7 @@ data-action="./main/control.php?act=create_appointment"
 </form>
 
     <hr>
-    <h3 class="title">My Upcoming Appointments</h3>
+    <h3 class="title">My Upcoming Appointments</h3><br>
 
     <?php $arr = list_appointments(); ?>
     <table class="table">

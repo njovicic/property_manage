@@ -18,7 +18,7 @@ Class TCommon
     //session type user
     public static $TYPE_USER=1;
     //website title
-    static public $mainTitle = "system";
+    static public $mainTitle = "Property Management";
     //website author
     static public $mainAuthor = "Team NNR";
     //user table name
