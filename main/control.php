@@ -193,8 +193,7 @@ function create_client(){
 
 function edit_client(){
     $r["success"] = false;
-    $id = $_POST["id"];
-
+    $id = $_POST["clientId"];
     $clientName = $_POST["clientName"];
     $address1 = $_POST["clientAddress1"];
     $address2 = $_POST["clientAddress2"];
@@ -315,25 +314,29 @@ function del_item(){
 function create_property()
 {
     $r["success"] = false;
-    $name = $_POST["name"];
-    $price = trim($_POST["price"]);
-    $address = trim($_POST["address"]);
-    $sqlInsert = "insert into `property` (name,address,price) values('$name','$address',$price)";
+    $status = $_POST["propStatus"];
+    $subdivId = TCommon::getOneColumn("SELECT subdivId FROM subdivision WHERE subdivName=".$_POST["subdivName"]);
+    $blockId = TCommon::getOneColumn("SELECT blockId FROM block WHERE blockName=".$_POST["blockName"]);
+    $lotId = TCommon::getOneColumn("SELECT lotId FROM lot JOIN block ON lot.Block_blockId=$blockId".
+        " JOIN subdivision ON Block.Subdivision_subdivId=$subdivId WHERE lotNumber=".$_POST["lotNumber"]);
+    $sqlInsert = "INSERT INTO property (propStatus, Lot_lotId) VALUES('$status','$lotId')";
     if (TCommon::execSql($sqlInsert)) {
         $r['success'] = true;
-        $r['info'] = "$name create success";
+        $r['info'] = "property create success";
     }
     echo json_encode($r);
 }
 
 function list_properties(){
-    $query = "SELECT * FROM property";
+    $query = "SELECT * FROM property JOIN lot ON property.Lot_lotId=lot.lotId 
+        JOIN block ON lot.Block_blockId=block.blockId 
+        JOIN subdivision ON block.Subdivision_subdivId=subdivision.subdivId";
     return TCommon::getAll($query);
 }
 
 function del_property(){
-    $itemName =$_GET["itemName"];
-    $sqlExec = "DELETE FROM item WHERE item.itemName = '$itemName'";
+    $propId =$_GET["propId"];
+    $sqlExec = "DELETE FROM property WHERE property.propId = '$propId'";
     print_r($sqlExec);
     if(TCommon::execSql($sqlExec)){
 
@@ -374,10 +377,8 @@ function create_appointment(){
 
 function list_appointments(){
     $uid = $_SESSION['ID'];
-    $query = "SELECT  appointment.apptId, appointment.apptDate, client.clientName
-        FROM appointment
-        INNER JOIN client ON appointment.Client_clientId=client.clientId
-        WHERE appointment.User_userId = $uid";
+    $query = "SELECT  appointment.apptId, appointment.apptDate, client.clientName FROM appointment
+        JOIN client ON appointment.Client_clientId=client.clientId WHERE appointment.User_userId = $uid";
     return TCommon::getAll($query);
 }
 
@@ -419,13 +420,27 @@ function view_package(){
     TCommon::headerTo("../view_package_page.php");
 }
 
+function create_package(){
+    TCommon::headerTo("../new_package_page.php");
+}
+
 //--listbox get value--
 function listTypes(){
     $sql = "SELECT * FROM itemType";
     return TCommon::getAll($sql);
 }
+
 function listManus(){
     $sql = "SELECT * FROM itemManufacturer";
     return TCommon::getAll($sql);
 }
 
+function listLocations(){
+    $sql = "SELECT * FROM itemLocation";
+    return TCommon::getAll($sql);
+}
+
+function listItems(){
+    $sql = "SELECT * FROM item";
+    return TCommon::getAll($sql);
+}

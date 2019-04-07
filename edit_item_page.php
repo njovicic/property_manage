@@ -10,7 +10,7 @@ print_r($item);
       data-action="./main/control.php?act=edit_item"
       data-url="list_item_page.php">
     <h3 class="title">Edit <?php echo $item['itemName'] ?></h3>
-    <input style="display:none" value="<?php echo $id?>" name="id" />
+    <input type="hidden" value="<?php echo $id?>" name="id" />
     <div class="form-group">
         <label>Item name:</label>
         <input name="itemName" type="text" value="<?php echo $item['itemName']?>" class="form-control"/>

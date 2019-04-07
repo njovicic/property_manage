@@ -25,15 +25,16 @@ require_once('head.php');
     </div>
     <div>
 </form>
-<hr>
 <h3 class="title">List of Properties</h3>
 <?php $arr = list_properties(); ?>
 <table class="table" border="2" cellpadding="5" cellspacing="3">
     <thead>
     <tr>
+        <td>Subdivision</td>
+        <td>Block</td>
         <td>Lot #</td>
         <td>Property Status</td>
-        <td>View Package</td>
+        <td></td>
         <td></td>
         <td></td>
     </tr>
@@ -41,13 +42,15 @@ require_once('head.php');
     <tbody>
 
     <?php foreach($arr as $k => $v){ ?>
-    <tr>
-        <td><?php echo $v["Lot_lotId"] ;?></td>
-        <td><?php echo $v["propStatus"] ;?></td>
-        <td><a href="./main/control.php?act=view_package&Lot_lotId=<?php echo $v["Lot_lotId"]?>">View Package</a></td>
-        <td><a href="./main/control.php?act=edit_property&Lot_lotId=<?php echo $v["Lot_lotId"]?>">Edit</a></td>
-        <td><a href="./main/control.php?act=del_property&Lot_lotId=<?php echo $v["Lot_lotId"]?>">Delete</a></td>
-    </tr>
+        <tr>
+            <td><?php echo $v["subdivName"] ;?></td>
+            <td><?php echo $v["blockName"] ;?></td>
+            <td><?php echo $v["lotNumber"] ;?></td>
+            <td><?php echo $v["propStatus"] ;?></td>
+            <td><a href="./main/control.php?act=view_package&propId=<?php echo $v["propId"]?>">View Package</a></td> <!--(maybe use an if statement to make View or New if no package)-->
+            <td><a href="./main/control.php?act=edit_property&propId=<?php echo $v["propId"]?>">Edit</a></td>
+            <td><a href="./main/control.php?act=del_property&propId=<?php echo $v["propId"]?>">Delete</a></td>
+        </tr>
 
     <?php  } ?>
     </tbody>
