@@ -29,8 +29,10 @@ data-action="./main/control.php?act=create_appointment"
 
         <thead>
         <tr>
-            <td>Client name</td>
             <td>Appointment time</td>
+            <td>Client name</td>
+            <td>Client phone</td>
+            <td>Client email</td>
             <td></td>
             <td></td>
         </tr>
@@ -39,10 +41,12 @@ data-action="./main/control.php?act=create_appointment"
 
         <?php foreach($arr as $k => $v){ ?>
             <tr>
-                <td><?php echo $v["clientName"] ;?></td>
                 <td><?php echo $v["apptDate"] ;?></td>
+                <td><?php echo $v["clientName"] ;?></td>
+                <td><?php echo $v["clientPhone1"] ;?></td>
+                <td><?php echo $v["clientEmail"] ;?></td>
                 <td><a href="./edit_appointment_page.php?id=<?php echo $v['apptId']?>">Edit</a></td>
-                <td><a href="./main/control.php?act=del_appointment&apptDate=<?php echo $v["apptDate"]?>">Delete</a></td>
+                <td><a href="./main/control.php?act=del_appointment&id=<?php echo $v['apptId']?>?>">Delete</a></td>
             </tr>
         <?php  } ?>
         </tbody>

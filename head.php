@@ -13,6 +13,7 @@ if (isset($_SESSION["NAME"])) {
     <script src="assets/jquery.min.js"></script>
     <script src="assets/common.js"></script>
     <title><?php echo TCommon::$mainTitle; ?></title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
