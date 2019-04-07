@@ -1,8 +1,8 @@
 </div>
-<div id="foot" >
-    <p >
-     <?php echo "made by ".TCommon::$mainAuthor;?>
-     </p>
+<div id="foot">
+    <p>
+        <?php echo "&copy; 2019 ".TCommon::$mainAuthor;?>
+    </p>
 </div>
 </body>
 </html>

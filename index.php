@@ -9,11 +9,11 @@ data-action="./main/control.php?act=create_appointment"
     data-url="index.php">
     <h3 class="title">Create New Appointment</h3>
 	<div class="form-group">
-		<label>Client name:</label>
+		<label for="clientName">Client name:</label>
 		<input name="clientName" type="text" class="form-control"/>
 	</div>
 	<div class="form-group">
-		<label>Date and Time:</label>
+		<label for="apptDate">Date and Time:</label>
 		<input name="apptDate" type="text" placeholder="YYYY-MM-DD HH:MM:SS" data-clear-btn="true" class="form-control"/>
 	</div>
 	<div class="form-group ">
@@ -22,10 +22,10 @@ data-action="./main/control.php?act=create_appointment"
 </form>
 
     <hr>
-    <h3 class="title">My Appointment list</h3>
+    <h3 class="title">My Upcoming Appointments</h3>
 
     <?php $arr = list_appointments(); ?>
-    <table class="table" border="2" cellpadding="5" cellspacing="3">
+    <table class="table">
 
         <thead>
         <tr>

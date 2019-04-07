@@ -23,7 +23,7 @@ if (isset($_SESSION["NAME"])) {
     <link rel="stylesheet" href="./css/stylesheet.css" />
     <link rel="stylesheet" href="./css/mystyle.css" />
 </head>
-
+<body>
 <header>
 <div id="top-header">
     <div class="container">
@@ -31,11 +31,11 @@ if (isset($_SESSION["NAME"])) {
             <div class="col-md-6">
                 <div class="home-account">
                     <?php if ($u_name === FALSE) { ?>
-                        <span>Property Management</span>
-                        <a href="user_login.php">Login</a>
+                        <span>Property Management</span> |
+                        <a href="user_login.php">Login</a> |
                         <a href="user_register.php">Register</a>
                     <?php } else { ?>
-                    <span> Welcome , <?php echo $u_name ?></span>
+                    <span> Welcome , <?php echo $u_name ?></span> |
                     <a href="./main/control.php?act=out">Logout</a>
                     <?php } ?>
                 </div>
@@ -73,5 +73,4 @@ if (isset($_SESSION["NAME"])) {
     </div>
 </div>
 </header>
-<body>
 <div id="body">

@@ -1,4 +1,4 @@
-body{
+/*body{
     margin:80px 0 60px 0;
 }
 #head{
@@ -22,15 +22,19 @@ body{
     padding-right:10px;
     text-decoration: none;
     float:right;
-}
+}*/
 
 .title{
     padding-left: 108px;
 }
+
+
+
 .form-group{
     width:100%;
     margin:5px;
 }
+
 .form-group label{
     display: inline-block;
     width:200px;
@@ -39,12 +43,14 @@ body{
 }
 
 .form-group input{
-    width:290px!important;
-    margin-right:3px;
+    display: inline-block;
+    width: 290px!important;
+    margin: 10px;
 }
+
 .form-group button{
-    width:150px!important;
-    margin-right:3px;
+    width: 150px!important;
+    margin-right: 3px;
     text-align: center;
     margin-left: 208px;
 }
@@ -56,11 +62,17 @@ body{
     position:absolute;
     bottom:0;left:0
 }
+
 #foot p{
     text-align: center;
 }
+
 .table{
-    margin-left: 100px;
+    margin: 10px 5%;
     border-collapse: collapse;
-    cellpadding:3px;
+    width: 90%;
+}
+
+thead tr td{
+    font-weight:bold;
 }

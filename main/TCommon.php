@@ -20,7 +20,7 @@ Class TCommon
     //website title
     static public $mainTitle = "system";
     //website author
-    static public $mainAuthor = "developer";
+    static public $mainAuthor = "Team NNR";
     //user table name
     static public $userTbl = 'user';
 
