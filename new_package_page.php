@@ -3,6 +3,25 @@ $subTitle = "new_package_page";
 require_once('head.php');
 require_once('main/control.php');
 // print_r($_SESSION);
+
+if (isset($_POST['action'])) {
+    switch ($_POST['action']) {
+        case 'newitem':
+            insertItem();
+            break;
+        case 'newloc':
+            insertLocation();
+            break;
+    }
+}
+function insertItem()
+{
+}
+
+function insertLocation()
+{
+}
+
 ?>
 <?php if($u_name) {?>
     <form class="form-ajax-post"
@@ -44,21 +63,5 @@ require_once('main/control.php');
     </form>
 <?php }else{?>
     <h3 class="title">Please login/register first</h3>
-<?php }
-if (isset($_POST['action'])) {
-    switch ($_POST['action']) {
-        case 'newitem':
-            insertItem();
-            break;
-        case 'newloc':
-            insertLocation();
-            break;
-    }
-}
-function insertItem(){
-}
-function insertLocation(){
-}
-?>
 
-<?php require_once('foot.php'); ?><?php
+<?php }require_once('foot.php'); ?>
