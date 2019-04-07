@@ -59,13 +59,11 @@ function insertLocation()
         <div class="form-group tT010 ">
             <button class="form-ajax-btn" type="submit">Create Package</button><br>
         </div>
-        <div>
-            <form action="new_package_page.php" method="post">
-                <input type="hidden" id="itemCount" value="1" />
-                <button id="addItem" class="packbutton" type="submit" value="newitem">Add Item</button><br>
-                <button id="addLocation" class="packbutton" type="submit" value="newloc">Item Locations</button>
-            </form>
-        </div>
+        <!--<div>
+            <input type="hidden" id="itemCount" value="1" />
+            <button id="addItem" class="packbutton" type="submit" value="newitem">Add Item</button><br>
+            <button id="addLocation" class="packbutton" type="submit" value="newloc">Item Locations</button>
+        </div>-->
     </form>
 <?php }else{?>
     <h3 class="title">Please login/register first</h3>
