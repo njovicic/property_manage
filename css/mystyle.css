@@ -82,9 +82,9 @@ thead tr td{
 }
 
 #userRegistration, #userLogin {
-    text-align: center;
-    margin-right: 165px;
-    margin-top: 80px;
+	text-align: center;
+	margin-right: 165px;
+	margin-top: 80px;
 }
 
 #newAppointment, #editAppointment {
