@@ -27,8 +27,8 @@ require_once('head.php');
             <option value="on_hold">On Hold</option>
             <option value="cond_offer">Conditional Offer</option>
             <option value="firm_offer">Firm Offer</option>
-            <option value="need_pack">Needs Package</option>
-            <option value="pack_select">Package Selected</option>
+            <option value="pack_unselected">Needs Package</option>
+            <option value="pack_selected">Package Selected</option>
         </select>
     </div>
 
@@ -45,25 +45,43 @@ require_once('head.php');
         <td>Subdivision</td>
         <td>Block</td>
         <td>Lot #</td>
-        <td>Property Status</td>
+        <td>Lot Size</td>
+        <td>Lot Model</td>
+        <td>Closing Date</td>
+        <td>Status</td>
+        <td>Client Name</td>
         <td></td>
         <td></td>
         <td></td>
     </tr>
     </thead>
     <tbody>
-
     <?php foreach($arr as $k => $v){ ?>
         <tr>
-            <td><?php echo $v["subdivName"] ;?></td>
-            <td><?php echo $v["blockName"] ;?></td>
-            <td><?php echo $v["lotNumber"] ;?></td>
-            <td><?php echo $v["propStatus"] ;?></td>
-            <td><a href="./main/control.php?act=view_package&propId=<?php echo $v["propId"]?>">View Package</a></td> <!--(maybe use an if statement to make View or New if no package)-->
-            <td><a href="./main/control.php?act=edit_property&propId=<?php echo $v["propId"]?>">Edit</a></td>
-            <td><a href="./main/control.php?act=del_property&propId=<?php echo $v["propId"]?>">Delete</a></td>
+            <td><?php echo $v["sub"] ;?></td>
+            <td><?php echo $v["block"] ;?></td>
+            <td><?php echo $v["lotNum"] ;?></td>
+            <td><?php echo $v["lotSize"] ;?></td>
+            <td><?php echo $v["closingDate"] ;?></td>
+            <td><?php echo $v["lotModel"] ;?></td>
+            <td><?php echo $v["status"] ;?></td>
+            <td><?php echo $v["clientName"] ;?></td>
+            <td>
+                <?php
+                if($v["status"]=="pack_unselected"){
+                    ?><a href="./create_package_page.php"><?php echo "Create Package" ?></a><?php ;
+                }
+                else if($v["status"]=="pack_selected"){
+                    ?><a href="./view_package_page.php"><?php echo "View Package" ?></a><?php ;
+                }
+                else{
+                    echo "";
+                }
+                ?>
+            </td>
+            <td><a href="./edit_property_page.php?id=<?php echo $v['propertyId']?>">Edit</a></td>
+            <td><a href="./main/control.php?act=del_property&lotNum=<?php echo $v["lotNum"]?>">Delete</a></td>
         </tr>
-
     <?php  } ?>
     </tbody>
 </table>
