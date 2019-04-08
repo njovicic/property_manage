@@ -2,27 +2,27 @@
 $subTitle="registration";
 require_once('head.php');
 ?>
-<form class="form-ajax-post"
+<form id="userRegistration" class="form-ajax-post"
     data-action="./main/control.php?act=user_register"
     data-url="user_login.php">
 	<div class="form-group">
-		<label>username:</label>
+		<label>Username:</label>
 		<input name="name" type="text" class="form-control"/>
 	</div>
 	<div class="form-group">
-		<label>password:</label>
+		<label>Password:</label>
 		<input name="pwd" type="password" class="form-control"/>
 	</div>
 	<div class="form-group">
-		<label>password:</label>
+		<label>Confirm Password:</label>
 		<input name="pwd_a" type="password" class="form-control"/>
 	</div>
     <div class="form-group">
-        <label>tel-phone:</label>
+        <label>Phone #:</label>
         <input name="tel" type="text" class="form-control"/>
     </div>
     <div class="form-group">
-        <label>email:</label>
+        <label>Email:</label>
         <input name="email" type="text" class="form-control"/>
     </div>
 	<div class="form-group tT010 ">

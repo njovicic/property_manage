@@ -8,15 +8,15 @@ require_once('head.php');
 data-action="./main/control.php?act=create_appointment"
     data-url="index.php">
     <h3 class="title">Create New Appointment</h3><br>
-	<div class="form-group">
+	<div id="newAppointment" class="form-group">
 		<label for="clientName">Client name:</label>
 		<input name="clientName" type="text" class="form-control"/>
 	</div>
-	<div class="form-group">
+	<div id="newAppointment" class="form-group">
 		<label for="apptDate">Date and Time:</label>
 		<input name="apptDate" type="text" placeholder="YYYY-MM-DD HH:MM:SS" data-clear-btn="true" class="form-control"/>
 	</div>
-	<div class="form-group ">
+	<div id="newAppointmentButton" class="form-group ">
 		<button class="form-ajax-btn " type="submit">Submit</button>
 	</div>
     <br>

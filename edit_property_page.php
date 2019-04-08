@@ -10,31 +10,31 @@ $p = TCommon::getOne($sql);
       data-action="./main/control.php?act=edit_property"
       data-url="list_property_page.php">
     <input style="display:none" value="<?php echo $id ?>" name="id" />
-    <h3 class="title">Edit property on lot# <?php echo $p['lotNum']?></h3>
-    <div class="form-group">
-        <label>Sub</label>
-        <select name="p_sub">
+    <h3 class="title">Edit Property on Lot # <?php echo $p['lotNum']?></h3>
+    <div id="editProperty" class="form-group">
+        <label>Subdivision:</label>
+        <select id="editPropertySubdivision" name="p_sub">
             <option value="HWK"
-                <?php echo $p['sub']=='HWK'?'selected':''?>>Huron woods kitchener</option>
+                <?php echo $p['sub']=='HWK'?'selected':''?>>Huron Woods Kitchener</option>
             <option value="HRC"
                 <?php echo $p['sub']=='HRC'?'selected':''?>>Highland Ridge Cambridge</option>
         </select>
     </div>
-    <div class="form-group" >
+    <div id="editProperty" class="form-group" >
         <label>Block:</label>
         <input name="p_block" type="text" value="<?php echo $p['block']?>" class="form-control"/>
     </div>
-    <div class="form-group">
+    <div id="editProperty" class="form-group">
         <label>Lot #:</label>
         <input name="p_lotnum" type="text" value="<?php echo $p['lotNum']?>" class="form-control"/>
     </div>
-    <div class="form-group">
+    <div id="editProperty" class="form-group">
         <label>Size:</label>
         <input name="p_size" type="text" value="<?php echo $p['lotSize']?>" class="form-control"/>
     </div>
-    <div class="form-group">
-        <label>Model</label>
-        <select name="p_model" option="<?php echo $p['lotModel']?>">
+    <div id="editProperty" class="form-group">
+        <label>Model:</label>
+        <select id="editPropertyModel" name="p_model"">
             <option value="Bridgeport"
                 <?php echo $p['lotModel']=='Bridgeport'?'selected':''?>>Bridgeport</option>
             <option value="Brookside"
@@ -43,13 +43,13 @@ $p = TCommon::getOne($sql);
                 <?php echo $p['lotModel']=='Meadow'?'selected':''?>>Meadow</option>
         </select>
     </div>
-    <div class="form-group">
+    <div id="editProperty" class="form-group">
         <label>Closing Date:</label>
         <input name="p_closingdate" type="Date" value="<?php echo $p['closingDate']?>" class="form-control"/>
     </div>
-    <div class="form-group">
-        <label>Status</label>
-        <select name="p_status">
+    <div id="editProperty" class="form-group">
+        <label>Status:</label>
+        <select id="editPropertyStatus" name="p_status">
             <option value="available"
                 <?php echo $p['status']=='available'?'selected':''?>>Available</option>
             <option value="on_hold"
@@ -64,12 +64,12 @@ $p = TCommon::getOne($sql);
                 <?php echo $p['status']=='pack_selected'?'selected':''?>>Package Selected</option>
         </select>
     </div>
-    <div class="form-group">
-        <label>Buyer(client):</label>
+    <div id="editProperty" class="form-group">
+        <label>Client:</label>
         <input name="p_buyer" type="text" value="<?php echo $p['clientName']?>" class="form-control"/>
     </div>
 
-    <div class="form-group tT010 ">
+    <div id="editPropertyButton" class="form-group tT010 ">
         <button class="form-ajax-btn" type="submit">Submit</button>
     </div>
     <div>
