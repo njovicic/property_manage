@@ -29,6 +29,19 @@
     margin-top: 40px;
 }
 
+.heading {
+    text-align: center;
+    padding: 35px 0;
+}
+
+.heading h2 {
+    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    color: #333;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
 .form-group{
     width:100%;
     margin:5px;
