@@ -7,7 +7,7 @@ if (isset($_SESSION["NAME"])) {
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <meta name="viewport" content="width=device-width">
@@ -22,6 +22,11 @@ if (isset($_SESSION["NAME"])) {
     <link rel="stylesheet" href="./css/style_slider.css" />
     <link rel="stylesheet" href="./css/stylesheet.css" />
     <link rel="stylesheet" href="./css/mystyle.css" />
+    <script src="js/vendor/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+    <script src="js/vendor/jquery-1.11.0.min.js"></script>
+    <script src="js/vendor/jquery.gmap3.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
 <header>
