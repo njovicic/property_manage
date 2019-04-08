@@ -7,7 +7,7 @@ require_once('head.php');
 <form class="form-ajax-post"
       data-action="./main/control.php?act=create_property"
       data-url="list_property_page.php">
-    <h3 class="title">Create New Property</h3>
+    <h3 class="title">Create New Property</h3><br>
     <div class="form-group">
         <label>Subdivision:</label>
         <input name="subdivName" type="text" class="form-control"/>
@@ -21,7 +21,7 @@ require_once('head.php');
         <input name="lotNumber" type="text" class="form-control"/>
     </div>
     <div class="form-group">
-        <label>Status</label>
+        <label>Status:</label>
         <select name="propStatus">
             <option value="available">Available</option>
             <option value="on_hold">On Hold</option>
@@ -37,9 +37,9 @@ require_once('head.php');
     </div>
     <div>
 </form>
-<h3 class="title">List of Properties</h3>
+<h3 class="title">List of Properties</h3><br>
 <?php $arr = list_properties(); ?>
-<table class="table" border="2" cellpadding="5" cellspacing="3">
+<table class="table">
     <thead>
     <tr>
         <td>Subdivision</td>

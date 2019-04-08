@@ -6,7 +6,7 @@ require_once('head.php');
 <form class="form-ajax-post"
       data-action="./main/control.php?act=create_item"
       data-url="list_item_page.php">
-    <h3 class="title">Create New Item</h3>
+    <h3 class="title">Create New Item</h3><br>
     <div class="form-group">
         <label>Item name:</label>
         <input name="itemName" type="text" class="form-control"/>
@@ -47,9 +47,9 @@ require_once('head.php');
     <div>
 </form>
 <hr>
-<h3 class="title">List of Items</h3>
+<h3 class="title">List of Items</h3><br>
 <?php $arr = list_items(); ?>
-<table class="table" border="2" cellpadding="5" cellspacing="3">
+<table class="table">
     <thead>
     <tr>
         <td>Item name</td>
