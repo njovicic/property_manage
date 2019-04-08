@@ -48,5 +48,71 @@ data-action="./main/control.php?act=create_appointment"
         </tbody>
     </table>
 <?php }else{?>
-    <h3 class="title">Please login/register first</h3>
+    <!-- welcome message -->
+    <div id="welcome">
+        <div class="form_container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="heading-section">
+                        <h2>Welcome to Property Management for Freure Homes</h2>
+                        <img src="/images/icons/under-heading.png" alt="" >
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <ul class="slides">
+                        <li>
+                            <div class="testimonials-content">
+                                <p>Please login to see your appointments!</p>
+                                <h6><a href="user_login.php">Login</a> | <a href="user_register.php">Register</a></h6>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- slides -->
+    <div id="slider">
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <div class="slider-caption">
+                        <h1>New House Model</h1>
+                        <p>This split level home houses 2,230 sq. ft. and wonderful 11’ ceilings in a sunken great room.<br><br>
+                            The Sagamore provides 4 bedrooms and a 2nd floor “flex” room ideal for lounging on a day off.<br><br>
+                            With 3 optional elevations such as modern façade and gabled roof, this home is an amazing<br><br>
+                            place to live.</p>
+                        <a href="./list_property_page.php">View Properties</a>
+                    </div>
+                    <img src="./images/slides/slides-image-1.png" alt="" />
+                </li>
+                <li>
+                    <div class="slider-caption">
+                        <h1>New House Model</h1>
+                        <p>In this this gorgeous 2,573 sq. ft. home there are 3 different elevation styles. <br><br>
+                            With 4 bedrooms, an unfinished basement rec room, 2nd floor family retreat <br><br>
+                            and laundry room on the main floor, this home is perfect for any family. <br><br>
+                            The Charleston provides lots of room and options to customize your home <br><br>
+                            how you see fit.</p>
+                        <a href="./list_property_page.php">View Properties</a>
+                    </div>
+                    <img src="./images/slides/slides-image-2.png" alt="" />
+                </li>
+                <li>
+                    <div class="slider-caption">
+                        <h1>New House Model</h1>
+                        <p>With a total of 3,464 sq. ft. this is one of our largest and most luxurious models. <br><br>
+                            With 4 bedrooms, a 2nd floor family retreat, breakfast nook, dining room, den, <br><br>
+                            and 1st floor laundry, the Willowstone is the perfect home for a large single family, <br><br>
+                            with large amounts of room and 2 elevations to choose from.</p>
+                        <a href="./list_property_page.php">View Properties</a>
+                    </div>
+                    <img src="./images/slides/slides-image-3.png" alt="" />
+                </li>
+            </ul>
+        </div>
+    </div>
 <?php } require_once('foot.php'); ?>
