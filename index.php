@@ -53,7 +53,7 @@ data-action="./main/control.php?act=create_appointment"
         <div class="form_container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="heading">
+                    <div id="heading">
                         <h2>Welcome to Property Management for Freure Homes</h2>
                         <img src="/images/icons/under-heading.png" alt="" >
                     </div>
@@ -80,7 +80,7 @@ data-action="./main/control.php?act=create_appointment"
             <ul class="slides">
                 <li>
                     <div class="slider-caption">
-                        <h1>New House Model</h1>
+                        <h1>Sagamore</h1>
                         <p>This split level home houses 2,230 sq. ft. and wonderful 11’ ceilings in a sunken great room.<br><br>
                             The Sagamore provides 4 bedrooms and a 2nd floor “flex” room ideal for lounging on a day off.<br><br>
                             With 3 optional elevations such as modern façade and gabled roof, this home is an amazing<br><br>
@@ -91,7 +91,7 @@ data-action="./main/control.php?act=create_appointment"
                 </li>
                 <li>
                     <div class="slider-caption">
-                        <h1>New House Model</h1>
+                        <h1>Charleston</h1>
                         <p>In this this gorgeous 2,573 sq. ft. home there are 3 different elevation styles. <br><br>
                             With 4 bedrooms, an unfinished basement rec room, 2nd floor family retreat <br><br>
                             and laundry room on the main floor, this home is perfect for any family. <br><br>
@@ -103,7 +103,7 @@ data-action="./main/control.php?act=create_appointment"
                 </li>
                 <li>
                     <div class="slider-caption">
-                        <h1>New House Model</h1>
+                        <h1>Willowstone</h1>
                         <p>With a total of 3,464 sq. ft. this is one of our largest and most luxurious models. <br><br>
                             With 4 bedrooms, a 2nd floor family retreat, breakfast nook, dining room, den, <br><br>
                             and 1st floor laundry, the Willowstone is the perfect home for a large single family, <br><br>

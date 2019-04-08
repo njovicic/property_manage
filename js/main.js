@@ -16,7 +16,7 @@ $(document).ready(function() {
 		nextText: ''
 	});
 
-  $('.testimonails-slider').flexslider({
+  $('.testimonials-slider').flexslider({
     animation: 'slide',
     slideshowSpeed: 5000,
     prevText: '',
