@@ -35,6 +35,10 @@
     margin-bottom:10px;
 }
 
+.slider-caption p {
+    text-shadow: 3px 3px 1px black;
+}
+
 #heading h2 {
     font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 20px;
