@@ -46,7 +46,6 @@ require_once('head.php');
     </div>
     <br>
 </form>
-<hr>
 <h3 class="title">List of Items</h3><br>
 <?php $arr = list_items(); ?>
 <table class="table">
