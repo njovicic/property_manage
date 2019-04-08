@@ -70,7 +70,7 @@
 }
 
 .table{
-    margin: 10px 5%;
+    margin: 10px 5% 5%;
     border-collapse: collapse;
     width: 90%;
     border: 2px solid black;
