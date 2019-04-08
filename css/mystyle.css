@@ -25,7 +25,8 @@
 }*/
 
 .title{
-    padding-left: 108px;
+    text-align: center;
+    margin-top: 40px;
 }
 
 .form-group{
@@ -78,4 +79,55 @@
 
 thead tr td{
     font-weight:bold;
+}
+
+#userRegistration, #userLogin {
+    text-align: center;
+    margin-right: 165px;
+    margin-top: 80px;
+}
+
+#newAppointment, #editAppointment {
+    text-align: left;
+}
+
+#newAppointmentButton, #editAppointmentButton {
+    text-align: left;
+    margin-left: 13px;
+}
+
+#newProperty, #editProperty {
+    text-align: left;
+}
+
+#newPropertyButton, #editPropertyButton {
+    text-align: left;
+    margin-left: 14px;
+}
+
+#newPropertyStatus, #editPropertyModel, #editPropertyStatus, #editPropertySubdivision {
+    text-align: left;
+    margin-left: 11px;
+}
+
+#newItem, #editItem {
+    text-align: left;
+}
+
+#newItemButton, #editItemButton {
+    text-align: left;
+    margin-left: 14px;
+}
+#newItemType, #newItemStandard, #newItemManufacturer, #editItemManufacturer, #editItemStandard, #editItemType {
+    text-align: left;
+    margin-left: 11px;
+}
+
+#newClient, #editClient {
+    text-align: left;
+}
+
+#newClientButton, #editClientButton {
+    text-align: left;
+    margin-left: 13px;
 }
