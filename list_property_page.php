@@ -8,21 +8,21 @@ require_once('head.php');
       data-action="./main/control.php?act=create_property"
       data-url="list_property_page.php">
     <h3 class="title">Create New Property</h3><br>
-    <div class="form-group">
+    <div id="newProperty" class="form-group">
         <label>Subdivision:</label>
         <input name="subdivName" type="text" class="form-control"/>
     </div>
-    <div class="form-group">
+    <div id="newProperty" class="form-group">
         <label>Block:</label>
         <input name="blockName" type="text" class="form-control"/>
     </div>
-    <div class="form-group">
+    <div id="newProperty" class="form-group">
         <label>Lot #:</label>
         <input name="lotNumber" type="text" class="form-control"/>
     </div>
-    <div class="form-group">
+    <div id="newProperty" class="form-group">
         <label>Status:</label>
-        <select name="propStatus">
+        <select id="newPropertyStatus" name="propStatus">
             <option value="available">Available</option>
             <option value="on_hold">On Hold</option>
             <option value="cond_offer">Conditional Offer</option>
@@ -32,8 +32,8 @@ require_once('head.php');
         </select>
     </div>
 
-    <div class="form-group tT010 ">
-        <button class="form-ajax-btn" type="submit">Add a Property</button>
+    <div id="newPropertyButton" class="form-group tT010 ">
+        <button class="form-ajax-btn" type="submit">Add a New Property</button>
     </div>
     <br>
 </form>
