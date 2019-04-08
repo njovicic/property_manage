@@ -62,8 +62,8 @@ require_once('head.php');
             <td><?php echo $v["block"] ;?></td>
             <td><?php echo $v["lotNum"] ;?></td>
             <td><?php echo $v["lotSize"] ;?></td>
-            <td><?php echo $v["closingDate"] ;?></td>
             <td><?php echo $v["lotModel"] ;?></td>
+            <td><?php echo $v["closingDate"] ;?></td>
             <td><?php echo $v["status"] ;?></td>
             <td><?php echo $v["clientName"] ;?></td>
             <td>
