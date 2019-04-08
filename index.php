@@ -53,7 +53,7 @@ data-action="./main/control.php?act=create_appointment"
         <div class="form_container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="heading-section">
+                    <div class="heading">
                         <h2>Welcome to Property Management for Freure Homes</h2>
                         <img src="/images/icons/under-heading.png" alt="" >
                     </div>

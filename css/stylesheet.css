@@ -22,12 +22,12 @@ p {
   color: #666;
 }
 
-.heading-section {
+.heading {
   text-align: center;
   padding: 35px 0;
 }
 
-.heading-section h2 {
+.heading h2 {
   font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 20px;
   color: #333;
