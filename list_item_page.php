@@ -18,8 +18,8 @@ require_once('head.php');
     <div class="form-group">
         <label>Standard:</label>
         <select name="itemStandard">
-            <option value="1">1</option>
-            <option value="0">0</option>
+            <option value="1">Standard</option>
+            <option value="0">Upgrade</option>
         </select>
     </div>
 
