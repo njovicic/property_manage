@@ -36,7 +36,7 @@
 }
 
 .slider-caption p {
-    text-shadow: 3px 3px 1px black;
+    text-shadow: 1px 1px 0 black;
 }
 
 #heading h2 {
@@ -45,6 +45,7 @@
     color: #cacaca;
     font-weight: 700;
     text-transform: uppercase;
+    text-shadow: 1px 1px 0 black;
 }
 
 .form-group{
