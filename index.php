@@ -19,14 +19,11 @@ data-action="./main/control.php?act=create_appointment"
 	<div class="form-group ">
 		<button class="form-ajax-btn " type="submit">Submit</button>
 	</div>
+    <br>
 </form>
-
-    <hr>
     <h3 class="title">My Upcoming Appointments</h3><br>
-
     <?php $arr = list_appointments(); ?>
     <table class="table">
-
         <thead>
         <tr>
             <td>Appointment time</td>
@@ -38,7 +35,6 @@ data-action="./main/control.php?act=create_appointment"
         </tr>
         </thead>
         <tbody>
-
         <?php foreach($arr as $k => $v){ ?>
             <tr>
                 <td><?php echo $v["apptDate"] ;?></td>
@@ -53,6 +49,4 @@ data-action="./main/control.php?act=create_appointment"
     </table>
 <?php }else{?>
     <h3 class="title">Please login/register first</h3>
-<?php }?>
-
-<?php require_once('foot.php'); ?>
+<?php } require_once('foot.php'); ?>

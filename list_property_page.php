@@ -35,7 +35,7 @@ require_once('head.php');
     <div class="form-group tT010 ">
         <button class="form-ajax-btn" type="submit">Add a Property</button>
     </div>
-    <div>
+    <br>
 </form>
 <h3 class="title">List of Properties</h3><br>
 <?php $arr = list_properties(); ?>

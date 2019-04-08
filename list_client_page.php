@@ -48,13 +48,11 @@ require_once('head.php');
         <label>Details: </label>
         <input name="clientDetails" type="text" class="form-control">
     </div>
-
     <div class="form-group tT010 ">
         <button class="form-ajax-btn" type="submit">Add a New Client</button>
     </div>
-    <div>
+    <br>
 </form>
-<hr>
 <h3 class="title">List of Clients</h3><br>
 <?php $arr = list_clients(); ?>
 <table class="table">
@@ -97,6 +95,4 @@ require_once('head.php');
 </table>
 <?php }else{?>
 <h3 class="title">Please login/register first</h3>
-<?php }?>
-
-<?php require_once('foot.php'); ?>
+<?php } require_once('foot.php'); ?>

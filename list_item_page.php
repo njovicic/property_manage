@@ -44,7 +44,7 @@ require_once('head.php');
     <div class="form-group tT010 ">
         <button class="form-ajax-btn" type="submit">Add a New Item</button>
     </div>
-    <div>
+    <br>
 </form>
 <hr>
 <h3 class="title">List of Items</h3><br>
