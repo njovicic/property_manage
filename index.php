@@ -64,8 +64,8 @@ data-action="./main/control.php?act=create_appointment"
                     <ul class="slides">
                         <li>
                             <div class="testimonials-content">
-                                <p>Please login to see your appointments!</p>
-                                <h6><a href="user_login.php">Login</a> | <a href="user_register.php">Register</a></h6>
+                                <p style="text-align: center">Please login to see your appointments!</p>
+                                <h6 style="text-align: center"><a href="user_login.php">Login</a> | <a href="user_register.php">Register</a></h6>
                             </div>
                         </li>
                     </ul>
