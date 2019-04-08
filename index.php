@@ -2,25 +2,37 @@
 $subTitle = "login";
 require_once('head.php');
 ?>
-
+<!-- welcome message -->
+<div id="welcome">
+    <div class="form_container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="heading">
+                    <h2>Welcome to Property Management for Freure Homes</h2>
+                    <img src="/images/icons/under-heading.png" alt="" >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <?php if($u_name) {?>
-<form class="form-ajax-post"
-data-action="./main/control.php?act=create_appointment"
-    data-url="index.php">
-    <h3 class="title">Create New Appointment</h3><br>
-	<div id="newAppointment" class="form-group">
-		<label for="clientName">Client name:</label>
-		<input name="clientName" type="text" class="form-control"/>
-	</div>
-	<div id="newAppointment" class="form-group">
-		<label for="apptDate">Date and Time:</label>
-		<input name="apptDate" type="text" placeholder="YYYY-MM-DD HH:MM:SS" data-clear-btn="true" class="form-control"/>
-	</div>
-	<div id="newAppointmentButton" class="form-group ">
-		<button class="form-ajax-btn " type="submit">Submit</button>
-	</div>
-    <br>
-</form>
+    <form class="form-ajax-post"
+        data-action="./main/control.php?act=create_appointment"
+        data-url="index.php">
+        <h3 class="title">Create New Appointment</h3><br>
+        <div id="newAppointment" class="form-group">
+            <label for="clientName">Client name:</label>
+            <input name="clientName" type="text" class="form-control"/>
+        </div>
+        <div id="newAppointment" class="form-group">
+            <label for="apptDate">Date and Time:</label>
+            <input name="apptDate" type="text" placeholder="YYYY-MM-DD HH:MM:SS" data-clear-btn="true" class="form-control"/>
+        </div>
+        <div id="newAppointmentButton" class="form-group ">
+            <button class="form-ajax-btn " type="submit">Submit</button>
+        </div>
+        <br>
+    </form>
     <h3 class="title">My Upcoming Appointments</h3><br>
     <?php $arr = list_appointments(); ?>
     <table class="table">
@@ -48,29 +60,10 @@ data-action="./main/control.php?act=create_appointment"
         </tbody>
     </table>
 <?php }else{?>
-    <!-- welcome message -->
-    <div id="welcome">
-        <div class="form_container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="heading">
-                        <h2>Welcome to Property Management for Freure Homes</h2>
-                        <img src="/images/icons/under-heading.png" alt="" >
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <ul class="slides">
-                        <li>
-                            <div class="testimonials-content">
-                                <p style="text-align: center">Please login to see your appointments!</p>
-                                <h6 style="text-align: center"><a href="user_login.php">Login</a> | <a href="user_register.php">Register</a></h6>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <p style="text-align: center">Please login to see your appointments!</p>
+            <h6 style="text-align: center"><a href="user_login.php">Login</a> | <a href="user_register.php">Register</a></h6>
         </div>
     </div>
 
